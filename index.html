@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ليلة حنة 🤍</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#100910;
+    color:#fff;
+    font-family:'Cairo',sans-serif;
+    overflow-x:hidden;
+}
+
+/* الخلفية */
+body:before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(194,145,67,.16),transparent 30%),
+    radial-gradient(circle at 80% 80%,rgba(117,32,65,.22),transparent 35%),
+    linear-gradient(135deg,#100910,#1b0c18);
+}
+
+/* النجوم */
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    border-radius:50%;
+    background:#f5ddb0;
+    opacity:.6;
+    animation:twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.15;
+        transform:scale(.6);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* البداية */
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+}
+
+.hero-content{
+    max-width:750px;
+    animation:appear 1.5s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(35px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.top-text{
+    color:#d8ad65;
+    font-size:13px;
+    letter-spacing:4px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:'Amiri',serif;
+    font-size:clamp(65px,17vw,120px);
+    line-height:.9;
+    color:#f2d394;
+    text-shadow:0 0 35px rgba(242,211,148,.2);
+}
+
+.hero h2{
+    font-family:'Amiri',serif;
+    font-size:clamp(30px,8vw,55px);
+    margin-top:25px;
+}
+
+.names{
+    color:#d8ad65;
+    font-family:'Amiri',serif;
+    font-size:28px;
+    margin-top:10px;
+}
+
+.line{
+    width:100px;
+    height:2px;
+    background:#d8ad65;
+    margin:25px auto;
+}
+
+.hero p{
+    color:#cfc4ca;
+    line-height:2;
+    font-size:15px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:13px 30px;
+    border:1px solid #d8ad65;
+    border-radius:50px;
+    color:#f2d394;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#d8ad65;
+    color:#150b12;
+}
+
+/* الأقسام */
+section{
+    padding:90px 20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.title span{
+    color:#d8ad65;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+.title h2{
+    font-family:'Amiri',serif;
+    font-size:43px;
+    color:#f2d394;
+    margin-top:7px;
+}
+
+/* الرسالة */
+.letter{
+    padding:40px 30px;
+    border-radius:28px;
+    border:1px solid rgba(216,173,101,.3);
+    background:rgba(255,255,255,.035);
+    backdrop-filter:blur(12px);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+    text-align:center;
+}
+
+.letter p{
+    font-family:'Amiri',serif;
+    font-size:23px;
+    line-height:2.2;
+    color:#eee2e7;
+}
+
+.signature{
+    margin-top:25px;
+    color:#d8ad65;
+    font-family:'Amiri',serif;
+    font-size:27px;
+}
+
+/* التاريخ */
+.date-card{
+    text-align:center;
+    padding:40px 20px;
+    border:1px solid rgba(216,173,101,.25);
+    border-radius:25px;
+    background:rgba(255,255,255,.03);
+}
+
+.date-card .date{
+    font-family:'Amiri',serif;
+    font-size:55px;
+    color:#f2d394;
+}
+
+.date-card p{
+    color:#bbb;
+    line-height:2;
+}
+
+/* العد التنازلي */
+.countdown{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:30px;
+}
+
+.time{
+    text-align:center;
+    padding:22px 10px;
+    border-radius:18px;
+    border:1px solid rgba(216,173,101,.25);
+    background:rgba(255,255,255,.035);
+}
+
+.time strong{
+    display:block;
+    color:#f2d394;
+    font-size:32px;
+}
+
+.time span{
+    color:#aaa;
+    font-size:12px;
+}
+
+/* الأمنيات */
+.wishes{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.wish{
+    text-align:center;
+    padding:30px 18px;
+    border-radius:22px;
+    border:1px solid rgba(216,173,101,.2);
+    background:rgba(255,255,255,.025);
+}
+
+.wish-icon{
+    font-size:35px;
+    margin-bottom:15px;
+}
+
+.wish h3{
+    color:#f2d394;
+    margin-bottom:10px;
+}
+
+.wish p{
+    color:#aaa;
+    font-size:13px;
+    line-height:1.9;
+}
+
+/* النهاية */
+.final{
+    min-height:75vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.final h2{
+    font-family:'Amiri',serif;
+    font-size:clamp(45px,11vw,80px);
+    color:#f2d394;
+}
+
+.final p{
+    color:#ccc;
+    line-height:2;
+    margin-top:15px;
+}
+
+/* زر الموسيقى */
+.music{
+    position:fixed;
+    left:18px;
+    bottom:18px;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    border:1px solid #d8ad65;
+    background:#180d17;
+    color:#f2d394;
+    font-size:20px;
+    z-index:100;
+    cursor:pointer;
+}
+
+/* موبايل */
+@media(max-width:650px){
+
+    section{
+        padding:70px 18px;
+    }
+
+    .countdown{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .wishes{
+        grid-template-columns:1fr;
+    }
+
+    .letter{
+        padding:30px 20px;
+    }
+
+    .letter p{
+        font-size:21px;
+    }
+
+    .date-card .date{
+        font-size:45px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<div id="stars"></div>
+
+<!-- الأغنية -->
+<audio id="music" loop>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music" onclick="toggleMusic()" id="musicButton">
+    ♫
+</button>
+
+
+<!-- =========================
+     البداية
+========================= -->
+
+<header class="hero">
+
+    <div class="hero-content">
+
+        <div class="top-text">
+            A NIGHT TO REMEMBER
+        </div>
+
+        <h1>
+            ليلة حنة
+        </h1>
+
+        <h2>
+            أختي الجميلة 🤍
+        </h2>
+
+        <!-- غير الأسماء هنا -->
+        <div class="names">
+            اسم أختي &nbsp; ♡ &nbsp; اسم العريس
+        </div>
+
+        <div class="line"></div>
+
+        <p>
+            الخميس 8 أكتوبر 2026
+            <br>
+            ليلة مختلفة عن كل الليالي...
+            <br>
+            ليلة تسبق أجمل يوم في حياتك.
+        </p>
+
+        <a href="#message" class="btn">
+            افتحي رسالتك 🤍
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     الرسالة
+========================= -->
+
+<section id="message">
+
+<div class="container">
+
+    <div class="title">
+        <span>A LETTER FOR MY SISTER</span>
+        <h2>إلى أختي</h2>
+    </div>
+
+    <div class="letter">
+
+        <p>
+
+            أختي وحبيبتي،
+            <br><br>
+
+            مش مصدق إن اليوم اللي كنا بنستناه
+            قرب يبقى حقيقة...
+            <br>
+
+            النهارده ليلة حنتك،
+            وبعد كام يوم بس هتبقي عروسة.
+            <br><br>
+
+            يمكن الحياة تاخد كل واحد فينا
+            في طريق،
+            ويمكن الأيام تتغير،
+            لكن هتفضلي دايمًا أختي
+            وصاحبتي
+            والإنسانة اللي ليها مكان خاص جدًا
+            في قلبي.
+            <br><br>
+
+            أتمنى من قلبي إن حياتك الجديدة
+            تكون أجمل مما تتمني،
+            ومليانة حب وراحة وضحك
+            وأيام حلوة كتير.
+            <br><br>
+
+            وربنا يكتبلكم الخير والسعادة
+            ويجمع بينكم في كل خير.
+            <br><br>
+
+            وأشوفك دايمًا مبسوطة
+            وأجمل عروسة في الدنيا 🤍
+
+        </p>
+
+        <div class="signature">
+            أخوكي اللي بيحبك ❤️
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     الحنة
+========================= -->
+
+<section>
+
+<div class="container">
+
+    <div class="title">
+
+        <span>HENNA NIGHT</span>
+
+        <h2>
+            ليلة الحنة
+        </h2>
+
+    </div>
+
+    <div class="date-card">
+
+        <div class="date">
+            الخميس
+        </div>
+
+        <div class="date">
+            8 أكتوبر 2026
+        </div>
+
+        <p>
+            ليلة كلها فرحة وضحك وذكريات
+            <br>
+            قبل ما تبدأ أجمل رحلة 🤍
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     العد التنازلي
+========================= -->
+
+<section>
+
+<div class="container">
+
+    <div class="title">
+
+        <span>THE BIG DAY</span>
+
+        <h2>
+            باقي على الفرح 🤍
+        </h2>
+
+    </div>
+
+    <div class="countdown">
+
+        <div class="time">
+            <strong id="days">00</strong>
+            <span>يوم</span>
+        </div>
+
+        <div class="time">
+            <strong id="hours">00</strong>
+            <span>ساعة</span>
+        </div>
+
+        <div class="time">
+            <strong id="minutes">00</strong>
+            <span>دقيقة</span>
+        </div>
+
+        <div class="time">
+            <strong id="seconds">00</strong>
+            <span>ثانية</span>
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     الأمنيات
+========================= -->
+
+<section>
+
+<div class="container">
+
+    <div class="title">
+
+        <span>MY WISHES FOR YOU</span>
+
+        <h2>
+            أتمنالك إيه؟
+        </h2>
+
+    </div>
+
+
+    <div class="wishes">
+
+        <div class="wish">
+
+            <div class="wish-icon">
+                🤍
+            </div>
+
+            <h3>
+                الحب
+            </h3>
+
+            <p>
+                ربنا يديم بينكم الحب
+                والمودة طول العمر.
+            </p>
+
+        </div>
+
+
+        <div class="wish">
+
+            <div class="wish-icon">
+                ✨
+            </div>
+
+            <h3>
+                السعادة
+            </h3>
+
+            <p>
+                كل أيامك الجاية تكون
+                فرحة وضحك وراحة بال.
+            </p>
+
+        </div>
+
+
+        <div class="wish">
+
+            <div class="wish-icon">
+                🌙
+            </div>
+
+            <h3>
+                حياة جميلة
+            </h3>
+
+            <p>
+                ربنا يكتبلكم أجمل حياة
+                ويباركلكم في كل خطوة.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     النهاية
+========================= -->
+
+<section class="final">
+
+<div>
+
+    <div class="line"></div>
+
+    <h2>
+        أجمل عروسة 🤍
+    </h2>
+
+    <p>
+        الخميس ليلتك...
+        <br>
+        والسبت فرحتك...
+        <br><br>
+        مبروك يا أختي ❤️
+        <br>
+        وربنا يسعد قلبك دايمًا.
+    </p>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   النجوم
+========================= */
+
+const stars = document.getElementById("stars");
+
+for(let i = 0; i < 90; i++){
+
+    const star = document.createElement("div");
+
+    star.className = "star";
+
+    star.style.left =
+        Math.random() * 100 + "%";
+
+    star.style.top =
+        Math.random() * 100 + "%";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    stars.appendChild(star);
+}
+
+
+/* =========================
+   العد التنازلي للفرح
+   17 أكتوبر 2026
+========================= */
+
+const weddingDate =
+    new Date("2026-10-17T20:00:00");
+
+
+function updateCountdown(){
+
+    const now = new Date();
+
+    const difference =
+        weddingDate - now;
+
+
+    if(difference <= 0){
+
+        document.getElementById("days").innerText = "00";
+        document.getElementById("hours").innerText = "00";
+        document.getElementById("minutes").innerText = "00";
+        document.getElementById("seconds").innerText = "00";
+
+        return;
+    }
+
+
+    const days =
+        Math.floor(
+            difference /
+            (1000 * 60 * 60 * 24)
+        );
+
+
+    const hours =
+        Math.floor(
+            (difference /
+            (1000 * 60 * 60)) % 24
+        );
+
+
+    const minutes =
+        Math.floor(
+            (difference /
+            (1000 * 60)) % 60
+        );
+
+
+    const seconds =
+        Math.floor(
+            (difference / 1000) % 60
+        );
+
+
+    document.getElementById("days").innerText =
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours").innerText =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes").innerText =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds").innerText =
+        String(seconds).padStart(2,"0");
+}
+
+
+setInterval(updateCountdown,1000);
+
+updateCountdown();
+
+
+/* =========================
+   الموسيقى
+========================= */
+
+const music =
+    document.getElementById("music");
+
+const musicButton =
+    document.getElementById("musicButton");
+
+
+function toggleMusic(){
+
+    if(music.paused){
+
+        music.play();
+
+        musicButton.innerText = "❚❚";
+
+    }else{
+
+        music.pause();
+
+        musicButton.innerText = "♫";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
